@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/top_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E0EBF5"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/auto_layer"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:background="@drawable/border_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_autoTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Auto Test"
+            android:textColor="#E0EBF5"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_goneMarginStart="20dp" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_AutoDataSize"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:text="20"
+            android:inputType="number"
+            android:imeOptions="actionDone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btn_autoRun"
+            app:layout_constraintStart_toEndOf="@id/tv_autoTitle"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_autoRun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:text="Start"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+<!--        <androidx.appcompat.widget.AppCompatButton-->
+<!--            android:id="@+id/btn_autoStop"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Stop"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toStartOf="@id/btn_autoRun"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/manual_layer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_layout"
+        app:layout_constraintBottom_toTopOf="@id/layout_result"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/auto_layer">
+
+        <TextView
+            android:id="@+id/tv_manualTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Manual Test"
+            android:textColor="#E0EBF5"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/layout_setBaud_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_manualTitle">
+
+            <TextView
+                android:id="@+id/tv_baud_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="통신속도 : "
+                android:textColor="#E0EBF5"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_manualTitle" />
+
+            <Spinner
+                android:id="@+id/spinner_baudrate"
+                android:layout_width="130dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                app:layout_constraintStart_toEndOf="@+id/tv_baud_rate"
+                app:layout_constraintTop_toTopOf="@id/tv_baud_rate" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_setData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_setBaud_rate">
+
+            <TextView
+                android:id="@+id/tv_dataSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="데이터 크기 : "
+                android:textColor="#E0EBF5"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_manualTitle" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_dataSize"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:inputType="number"
+                android:gravity="center"
+                android:imeOptions="actionDone"
+                android:text="20"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/auto_layer" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_CheckBoxGroup"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:background="@drawable/border_checkbox"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_setData">
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/cb_both"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="10dp"
+                android:buttonTint="#064C79"
+                android:text="Both"
+                android:textStyle="bold"
+                app:layout_flexShrink="0"
+                app:toggle_text="모드 1" />
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/cb_1to2"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="10dp"
+                android:buttonTint="#064C79"
+                android:text="1 to 2"
+                android:textStyle="bold"
+                app:layout_flexShrink="0"
+                app:toggle_text="모드 2" />
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/cb_2to1"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="10dp"
+                android:buttonTint="#064C79"
+                android:text="2 to 1"
+                android:textStyle="bold"
+                app:layout_flexShrink="0"
+                app:toggle_text="모드 3" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_run"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_CheckBoxGroup">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_SendData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:text="보내기" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_SendCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="취소" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_result"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/border_layout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/manual_layer">
+
+        <TextView
+            android:id="@+id/tv_Port1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Port1 : "
+            android:textColor="#E0EBF5"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="@id/port1_result"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_CountClear"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:text="c"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_Port1"
+            app:layout_constraintEnd_toStartOf="@id/tv_Port2"/>
+
+
+        <TextView
+            android:id="@+id/tv_Port2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text=" : Port2"
+            android:textColor="#E0EBF5"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/port2_result"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <GridLayout
+            android:id="@+id/port1_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_Port1"
+            app:layout_constraintEnd_toStartOf="@id/port2_result">
+
+            <TextView
+                android:layout_row="0"
+                android:layout_column="0"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginBottom="5dp"
+                android:text="전송 :"
+                android:textColor="#E0EBF5"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/converter1_tx_tv"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_row="0"
+                android:layout_column="1"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/textview_border"
+                android:gravity="center"
+                android:textColor="#E0EBF5"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_row="1"
+                android:layout_column="0"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginBottom="5dp"
+                android:text="수신 :"
+                android:textColor="#E0EBF5"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/converter1_rx_tv"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_row="1"
+                android:layout_column="1"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/textview_border"
+                android:gravity="center"
+                android:textColor="#E0EBF5"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_row="2"
+                android:layout_column="0"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginBottom="5dp"
+                android:text="에러 :"
+                android:textColor="#E0EBF5"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/converter1_error_tv"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_row="2"
+                android:layout_column="1"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/textview_border"
+                android:gravity="center"
+                android:textColor="#E0EBF5"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_row="3"
+                android:layout_column="0"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginBottom="5dp"
+                android:text="Time Out 에러 :"
+                android:textColor="#E0EBF5"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/converter1_error2_tv"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_row="3"
+                android:layout_column="1"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/textview_border"
+                android:gravity="center"
+                android:textColor="#E0EBF5"
+                android:textSize="15dp" />
+        </GridLayout>
+
+        <GridLayout
+            android:id="@+id/port2_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_Port2"
+            app:layout_constraintStart_toEndOf="@id/port1_result">
+
+            <TextView
+                android:layout_row="0"
+                android:layout_column="1"
+                android:layout_gravity="start|center_vertical"
+                android:layout_marginBottom="5dp"
+                android:text=": 전송"
+                android:textColor="#E0EBF5"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/converter2_tx_tv"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_row="0"
+                android:layout_column="0"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/textview_border"
+                android:gravity="center"
+                android:textColor="#E0EBF5"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_row="1"
+                android:layout_column="1"
+                android:layout_gravity="start|center_vertical"
+                android:layout_marginBottom="5dp"
+                android:text=": 수신"
+                android:textColor="#E0EBF5"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/converter2_rx_tv"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_row="1"
+                android:layout_column="0"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/textview_border"
+                android:gravity="center"
+                android:textColor="#E0EBF5"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_row="2"
+                android:layout_column="1"
+                android:layout_gravity="start|center_vertical"
+                android:layout_marginBottom="5dp"
+                android:text=": 에러"
+                android:textColor="#E0EBF5"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/converter2_error_tv"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_row="2"
+                android:layout_column="0"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/textview_border"
+                android:gravity="center"
+                android:textColor="#E0EBF5"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_row="3"
+                android:layout_column="1"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="5dp"
+                android:text=": Time Out 에러"
+                android:textColor="#E0EBF5"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/converter2_error2_tv"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_row="3"
+                android:layout_column="0"
+                android:layout_gravity="start|center_vertical"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/textview_border"
+                android:gravity="center"
+                android:textColor="#E0EBF5"
+                android:textSize="15dp" />
+        </GridLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/scrollView_container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/border_scrollview"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/port1_result">
+
+            <ScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:fadeScrollbars="false"
+                android:scrollbars="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <LinearLayout
+                    android:id="@+id/layout_logViewer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                </LinearLayout>
+            </ScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageButton
+            android:id="@+id/btn_logViewClear"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/ic_baseline_restore_from_trash_24"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintTop_toTopOf="@id/scrollView_container"
+            app:layout_constraintEnd_toEndOf="@id/scrollView_container"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
